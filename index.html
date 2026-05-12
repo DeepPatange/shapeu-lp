@@ -52,19 +52,28 @@
       </svg>
     </span>
 
-    <!-- announcement marquee -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>✦ Free Consultation</span>
-        <span>✦ Free BCA worth ₹2,500</span>
-        <span>✦ 100% Non-Surgical</span>
-        <span>✦ EMI Available</span>
-        <span>✦ 4 Clinics in Mumbai</span>
-        <span>✦ Free Consultation</span>
-        <span>✦ Free BCA worth ₹2,500</span>
-        <span>✦ 100% Non-Surgical</span>
-        <span>✦ EMI Available</span>
-        <span>✦ 4 Clinics in Mumbai</span>
+    <!-- offers strip -->
+    <div class="offers">
+      <div class="offers-head">
+        <span class="offers-label">Offers</span>
+      </div>
+      <div class="offers-grid">
+        <div class="offer-item">
+          <span class="offer-num">01</span>
+          <p>Pay for <strong>10 kgs</strong> &amp; get results up to <strong>13 kgs</strong></p>
+        </div>
+        <div class="offer-item">
+          <span class="offer-num">02</span>
+          <p>Get flat <strong>60% OFF</strong> on your transformation journey</p>
+        </div>
+        <div class="offer-item">
+          <span class="offer-num">03</span>
+          <p>Get your first <strong>1 kg weight loss FREE</strong></p>
+        </div>
+        <div class="offer-item">
+          <span class="offer-num">04</span>
+          <p>This anniversary, <strong>28 lucky winners</strong> get a <strong>FREE consultation</strong> with <strong>Dr. Mahesh Mandot</strong> <em>(Obesity Expert)</em></p>
+        </div>
       </div>
     </div>
 
@@ -315,22 +324,6 @@
         const firstInput = form.querySelector('input[name="name"]');
         if (firstInput) setTimeout(() => firstInput.focus({ preventScroll: true }), 600);
       }
-    }
-
-    // Reveal-on-scroll for testimonial cards and stat pills
-    if ('IntersectionObserver' in window) {
-      const revealIO = new IntersectionObserver((entries) => {
-        entries.forEach(en => {
-          if (en.isIntersecting) {
-            en.target.classList.add('is-visible');
-            revealIO.unobserve(en.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      document.querySelectorAll('.video-card, .stat-pill').forEach(el => {
-        el.classList.add('reveal');
-        revealIO.observe(el);
-      });
     }
 
     // Hide sticky bar when the hero form is already in view
