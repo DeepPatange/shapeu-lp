@@ -130,7 +130,10 @@
 
     <div class="video-gallery">
       <figure class="video-card">
-        <video src="Assets/Testimonial 1.mov" autoplay muted loop playsinline preload="auto"
+        <video src="https://res.cloudinary.com/dhcxhztde/video/upload/q_auto,f_auto,w_500,c_fill,ac_none/Testimonial_1_aozasw.mp4"
+               data-full="https://res.cloudinary.com/dhcxhztde/video/upload/q_auto,f_auto/Testimonial_1_aozasw.mp4"
+               poster="https://res.cloudinary.com/dhcxhztde/video/upload/so_2,w_600/Testimonial_1_aozasw.jpg"
+               autoplay muted loop playsinline preload="auto"
                onclick="openFullscreen(this)"></video>
         <div class="video-overlay">
           <span class="play-btn" aria-hidden="true">
@@ -144,7 +147,10 @@
       </figure>
 
       <figure class="video-card">
-        <video src="Assets/Testimonial 2.mp4" autoplay muted loop playsinline preload="auto"
+        <video src="https://res.cloudinary.com/dhcxhztde/video/upload/q_auto,f_auto,w_500,c_fill,ac_none/Testimonial_2_roxsdo.mp4"
+               data-full="https://res.cloudinary.com/dhcxhztde/video/upload/q_auto,f_auto/Testimonial_2_roxsdo.mp4"
+               poster="https://res.cloudinary.com/dhcxhztde/video/upload/so_2,w_600/Testimonial_2_roxsdo.jpg"
+               autoplay muted loop playsinline preload="auto"
                onclick="openFullscreen(this)"></video>
         <div class="video-overlay">
           <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
@@ -156,7 +162,10 @@
       </figure>
 
       <figure class="video-card">
-        <video src="Assets/RAJIV_TESTM.mp4" autoplay muted loop playsinline preload="auto"
+        <video src="https://res.cloudinary.com/dhcxhztde/video/upload/q_auto,f_auto,w_500,c_fill,ac_none/RAJIV_TESTM_qu04kr.mp4"
+               data-full="https://res.cloudinary.com/dhcxhztde/video/upload/q_auto,f_auto/RAJIV_TESTM_qu04kr.mp4"
+               poster="https://res.cloudinary.com/dhcxhztde/video/upload/so_2,w_600/RAJIV_TESTM_qu04kr.jpg"
+               autoplay muted loop playsinline preload="auto"
                onclick="openFullscreen(this)"></video>
         <div class="video-overlay">
           <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
@@ -168,19 +177,10 @@
       </figure>
 
       <figure class="video-card">
-        <video src="Assets/MARCH ugc option2.mp4" autoplay muted loop playsinline preload="auto"
-               onclick="openFullscreen(this)"></video>
-        <div class="video-overlay">
-          <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
-          <figcaption class="video-caption">
-            <strong>Client Review</strong>
-            <span>UGC Story</span>
-          </figcaption>
-        </div>
-      </figure>
-
-      <figure class="video-card">
-        <video src="Assets/Shape U Clinic_24985057531171222_2026-05-12.mp4" autoplay muted loop playsinline preload="auto"
+        <video src="https://res.cloudinary.com/dhcxhztde/video/upload/q_auto,f_auto,w_500,c_fill,ac_none/Shape_U_Clinic_24985057531171222_2026-05-12_vt3zqp.mp4"
+               data-full="https://res.cloudinary.com/dhcxhztde/video/upload/q_auto,f_auto/Shape_U_Clinic_24985057531171222_2026-05-12_vt3zqp.mp4"
+               poster="https://res.cloudinary.com/dhcxhztde/video/upload/so_2,w_600/Shape_U_Clinic_24985057531171222_2026-05-12_vt3zqp.jpg"
+               autoplay muted loop playsinline preload="auto"
                onclick="openFullscreen(this)"></video>
         <div class="video-overlay">
           <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
@@ -372,7 +372,7 @@
     const modalVideo = document.getElementById('modalVideo');
 
     function openFullscreen(video) {
-      modalVideo.src = video.currentSrc || video.src;
+      modalVideo.src = video.dataset.full || video.currentSrc || video.src;
       modalVideo.muted = false;
       modalVideo.currentTime = 0;
       modal.classList.add('is-open');
