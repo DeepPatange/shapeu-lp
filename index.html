@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shape-U Obesity Clinic — Non-Surgical Weight Loss with U-lipolysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span class="topbar-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 90000 00000
+      </span>
+      <span class="topbar-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        care@shape-u.in
+      </span>
+      <span class="topbar-item topbar-right">4 Clinics across Mumbai — Andheri · Mulund · Malad · Lower Parel</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#" class="brand">
+        <img src="Assets/Shape-U-Logo-1 copy 2.png" alt="Shape-U Obesity Clinic" />
+      </a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Treatments</a>
+        <a href="#testimonials">Stories</a>
+        <a href="#clinics">Clinics</a>
+        <a href="#contact" class="nav-cta">Book Consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="contact">
+    <div class="hero-wrap">
+      <div class="hero-visual">
+        <img src="Assets/ChatGPT Image May 12, 2026, 02_55_48 PM.png" alt="Lose Unhealthy Weight with U-lipolysis" />
+      </div>
+
+      <aside class="hero-form-card">
+        <h2 class="form-title">Book Your <em>Free</em> Consultation</h2>
+        <p class="form-sub">Includes a complimentary Body Composition Analysis worth <strong>₹2,500</strong></p>
+
+        <form class="lead-form" onsubmit="event.preventDefault(); alert('Thank you. Our team will reach out shortly.'); this.reset();">
+          <div class="field">
+            <label for="name">Your Name<span>*</span></label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+          </div>
+
+          <div class="field">
+            <label for="phone">Contact Number<span>*</span></label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9+\-\s]{7,15}" placeholder="+91 98xxxxxxxx" />
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label for="clinic">Preferred Clinic</label>
+              <div class="select-wrap">
+                <select id="clinic" name="clinic">
+                  <option value="">Select clinic</option>
+                  <option value="andheri">Andheri</option>
+                  <option value="mulund">Mulund</option>
+                  <option value="malad">Malad</option>
+                  <option value="lower-parel">Lower Parel</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="location">Current Location<span>*</span></label>
+              <input type="text" id="location" name="location" required placeholder="City / Area" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" />
+          </div>
+
+          <div class="field">
+            <label for="service">What are you Looking For?<span>*</span></label>
+            <div class="select-wrap">
+              <select id="service" name="service" required>
+                <option value="">Select treatment</option>
+                <option value="weight-loss">Weight Loss</option>
+                <option value="targeted-fat">Targeted Area Fat Reduction</option>
+                <option value="skin-tightening">Skin Tightening</option>
+                <option value="face-lifting">Face Lifting</option>
+                <option value="inch-loss">Inch Loss</option>
+                <option value="body-contouring">Body Contouring</option>
+              </select>
+            </div>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" name="consent" checked />
+            <span>I consent to receive updates and appointment messages on WhatsApp at the number I've provided.</span>
+          </label>
+
+          <button type="submit" class="submit-btn">
+            Request Callback
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+
+          <p class="form-foot">By submitting, you agree to our terms &amp; privacy policy.</p>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / VIDEO GALLERY -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-head">
+      <span class="eyebrow">Patient Stories</span>
+      <h2>Real Stories. <em>Real Results.</em></h2>
+      <p>Hear directly from clients and physicians who have experienced the Shape-U difference.</p>
+    </div>
+
+    <div class="video-gallery">
+      <figure class="video-card">
+        <video src="Assets/Testimonial 1.mov" autoplay muted loop playsinline preload="auto"
+               onclick="openFullscreen(this)"></video>
+        <div class="video-overlay">
+          <span class="play-btn" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+          </span>
+          <figcaption class="video-caption">
+            <strong>Dr. Nilima Dharkar</strong>
+            <span>Senior Family Physician</span>
+          </figcaption>
+        </div>
+      </figure>
+
+      <figure class="video-card">
+        <video src="Assets/Testimonial 2.mp4" autoplay muted loop playsinline preload="auto"
+               onclick="openFullscreen(this)"></video>
+        <div class="video-overlay">
+          <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
+          <figcaption class="video-caption">
+            <strong>Client Story</strong>
+            <span>Weight Loss Journey</span>
+          </figcaption>
+        </div>
+      </figure>
+
+      <figure class="video-card">
+        <video src="Assets/RAJIV_TESTM.mp4" autoplay muted loop playsinline preload="auto"
+               onclick="openFullscreen(this)"></video>
+        <div class="video-overlay">
+          <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
+          <figcaption class="video-caption">
+            <strong>Rajiv's Transformation</strong>
+            <span>Real Result</span>
+          </figcaption>
+        </div>
+      </figure>
+
+      <figure class="video-card">
+        <video src="Assets/MARCH ugc option2.mp4" autoplay muted loop playsinline preload="auto"
+               onclick="openFullscreen(this)"></video>
+        <div class="video-overlay">
+          <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
+          <figcaption class="video-caption">
+            <strong>Client Review</strong>
+            <span>UGC Story</span>
+          </figcaption>
+        </div>
+      </figure>
+
+      <figure class="video-card">
+        <video src="Assets/Shape U Clinic_24985057531171222_2026-05-12.mp4" autoplay muted loop playsinline preload="auto"
+               onclick="openFullscreen(this)"></video>
+        <div class="video-overlay">
+          <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
+          <figcaption class="video-caption">
+            <strong>Shape-U Clinic</strong>
+            <span>Experience</span>
+          </figcaption>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="trust" id="about">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="trust-num">10,000<span>+</span></div>
+        <div class="trust-label">Happy Clients</div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div class="trust-num">15<span>+</span></div>
+        <div class="trust-label">Years of Excellence</div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div class="trust-num">04</div>
+        <div class="trust-label">Clinics in Mumbai</div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div class="trust-num">100<span>%</span></div>
+        <div class="trust-label">Non-Surgical</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-head">
+      <span class="eyebrow">Our Treatments</span>
+      <h2>Tailored care for <em>every body</em>.</h2>
+      <p>Advanced, non-surgical body and skin solutions designed by certified physicians.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+        <h3>Weight Loss Program</h3>
+        <p>Sustainable, science-backed programs designed for long-term, healthy results.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h3>Targeted Fat Reduction</h3>
+        <p>U-lipolysis precisely targets stubborn fat in the arms, thighs, abdomen and more.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <h3>Skin Tightening</h3>
+        <p>Firm, lifted, and youthful skin without any downtime or invasive procedures.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3>Face Lifting</h3>
+        <p>Natural-looking lift, defined facial contours, and a refreshed radiant glow.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <div class="why-wrap">
+      <div class="why-text">
+        <span class="eyebrow">The Shape-U Difference</span>
+        <h2>Personalised care, <em>proven outcomes.</em></h2>
+        <p>At Shape-U, we combine clinical expertise with cutting-edge technology to deliver weight loss and body contouring outcomes that last. No surgery. No downtime. Just results you can see and feel.</p>
+        <ul class="why-list">
+          <li>
+            <span class="why-bullet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            FDA-approved, non-invasive technology
+          </li>
+          <li>
+            <span class="why-bullet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Personalised plans built by certified physicians
+          </li>
+          <li>
+            <span class="why-bullet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Visible results within the first few sessions
+          </li>
+          <li>
+            <span class="why-bullet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Transparent pricing — EMI options available
+          </li>
+        </ul>
+      </div>
+      <div class="why-stats">
+        <div class="stat-card">
+          <div class="stat-num">98<span>%</span></div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Surgical Procedures</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">45<span>min</span></div>
+          <div class="stat-label">Avg. Session Time</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">EMI</div>
+          <div class="stat-label">Flexible Payments</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="cta-inner">
+      <span class="eyebrow eyebrow-light">Limited Time</span>
+      <h2>Begin your transformation today.</h2>
+      <p>Book a free consultation and complimentary Body Composition Analysis worth ₹2,500.</p>
+      <a href="#contact" class="cta-btn">
+        Book Free Consultation
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- VIDEO MODAL -->
+  <div class="video-modal" id="videoModal" onclick="closeModal(event)">
+    <button class="modal-close" onclick="closeModal(event, true)" aria-label="Close">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-inner" onclick="event.stopPropagation()">
+      <video id="modalVideo" controls playsinline></video>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="clinics">
+    <div class="footer-inner">
+      <div class="foot-col foot-brand">
+        <img src="Assets/Shape-U-Logo-1 copy 2.png" alt="Shape-U Obesity Clinic" class="foot-logo" />
+        <p>Non-surgical body and skin transformation, redefined for the way you live today.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Clinics</h4>
+        <ul>
+          <li>Andheri</li>
+          <li>Mulund</li>
+          <li>Malad</li>
+          <li>Lower Parel</li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Treatments</h4>
+        <ul>
+          <li>Weight Loss</li>
+          <li>Fat Reduction</li>
+          <li>Skin Tightening</li>
+          <li>Face Lifting</li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Get in Touch</h4>
+        <ul>
+          <li>+91 90000 00000</li>
+          <li>care@shape-u.in</li>
+          <li>Mon — Sat · 10am — 8pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 Shape-U Obesity Clinic. All rights reserved.</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </footer>
+
+  <script>
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+
+    function openFullscreen(video) {
+      modalVideo.src = video.currentSrc || video.src;
+      modalVideo.muted = false;
+      modalVideo.currentTime = 0;
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      modalVideo.play().catch(() => {});
+    }
+
+    function closeModal(e, force) {
+      if (force || e.target === modal) {
+        modal.classList.remove('is-open');
+        modalVideo.pause();
+        modalVideo.removeAttribute('src');
+        modalVideo.load();
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeModal(null, true);
+      }
+    });
+  </script>
+</body>
+</html>

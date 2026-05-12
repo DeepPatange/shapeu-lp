@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+.vscode/
+.idea/
+*.log
+
+# Video assets (hosted externally — see README)
+Assets/*.mp4
+Assets/*.mov
