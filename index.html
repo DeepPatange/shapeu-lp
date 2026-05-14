@@ -456,44 +456,54 @@
       window.location.href = 'thank-you.html';
     }
 
-    // Desktop trigger: mouse leaves top of viewport
-    function onMouseOut(e) {
-      if (!e.relatedTarget && e.clientY <= 0) showExitModal();
+    // Desktop trigger: cursor exits top of viewport (mouseleave is more reliable than mouseout)
+    function onMouseLeave(e) {
+      if (e.clientY <= 10) showExitModal();
     }
-    // Mobile trigger: fast scroll up near top, or after 25s of activity
+    // Backup desktop trigger: cursor moving fast upward near top
+    let lastMouseY = 0;
+    let lastMouseT = Date.now();
+    function onMouseMove(e) {
+      const now = Date.now();
+      const dy = e.clientY - lastMouseY;
+      const dt = now - lastMouseT;
+      // moving up fast (more than 80px in less than 100ms) while already near top
+      if (dy < -80 && dt < 100 && e.clientY < 60) showExitModal();
+      lastMouseY = e.clientY;
+      lastMouseT = now;
+    }
+    // Mobile trigger: fast scroll up near top
     let lastScrollY = window.scrollY;
     let lastScrollT = Date.now();
     function onScrollExit() {
       const now = Date.now();
       const dy = window.scrollY - lastScrollY;
       const dt = now - lastScrollT;
-      if (dy < -40 && dt < 200 && window.scrollY < 200) showExitModal();
+      if (dy < -30 && dt < 250 && window.scrollY < 300) showExitModal();
       lastScrollY = window.scrollY;
       lastScrollT = now;
     }
+    // Tab/window blur — user switching away
+    function onWindowBlur() { showExitModal(); }
     // Back-navigation intent — works on desktop browser back button AND mobile back swipe/gesture
     function onPopState() {
       showExitModal();
-      // Re-push so the user stays on this page once; next back-press lets them leave
       if ('pushState' in history) history.pushState({ shapeu: 1 }, '');
     }
-    // Inactivity fallback (30s)
-    const inactivityTimer = setTimeout(() => {
-      // only if user scrolled at least once (engaged but stalled)
-      if (window.scrollY > 100) showExitModal();
-    }, 30000);
 
     function detachExitTriggers() {
-      document.removeEventListener('mouseout', onMouseOut);
+      document.documentElement.removeEventListener('mouseleave', onMouseLeave);
+      document.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('scroll', onScrollExit);
       window.removeEventListener('popstate', onPopState);
-      clearTimeout(inactivityTimer);
+      window.removeEventListener('blur', onWindowBlur);
     }
 
     if (!sessionStorage.getItem(EXIT_KEY)) {
-      document.addEventListener('mouseout', onMouseOut);
+      document.documentElement.addEventListener('mouseleave', onMouseLeave);
+      document.addEventListener('mousemove', onMouseMove);
       window.addEventListener('scroll', onScrollExit, { passive: true });
-      // push a state so the first back press triggers popup, not navigation away
+      window.addEventListener('blur', onWindowBlur);
       if ('pushState' in history) history.pushState({ shapeu: 1 }, '');
       window.addEventListener('popstate', onPopState);
     }
