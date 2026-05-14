@@ -52,29 +52,12 @@
       </svg>
     </span>
 
-    <!-- offers strip -->
-    <div class="offers">
-      <div class="offers-head">
-        <span class="offers-label">Offers</span>
-      </div>
-      <div class="offers-grid">
-        <div class="offer-item">
-          <span class="offer-num">01</span>
-          <p>Pay for <strong>10 kgs</strong> &amp; get results up to <strong>13 kgs</strong></p>
-        </div>
-        <div class="offer-item">
-          <span class="offer-num">02</span>
-          <p>Get flat <strong>60% OFF</strong> on your transformation journey</p>
-        </div>
-        <div class="offer-item">
-          <span class="offer-num">03</span>
-          <p>Get your first <strong>1 kg weight loss FREE</strong></p>
-        </div>
-        <div class="offer-item">
-          <span class="offer-num">04</span>
-          <p>This anniversary, <strong>28 lucky winners</strong> get a <strong>FREE consultation</strong> with <strong>Dr. Mahesh Mandot</strong> <em>(Obesity Expert)</em></p>
-        </div>
-      </div>
+    <!-- single golden offer -->
+    <div class="gold-offer" aria-label="Limited time offer">
+      <span class="gold-tag">Exclusive Offer</span>
+      <span class="gold-text">Get your first <strong>1 kg weight loss</strong></span>
+      <span class="gold-free">FREE</span>
+      <span class="gold-shine" aria-hidden="true"></span>
     </div>
 
     <div class="hero-wrap">
@@ -100,23 +83,16 @@
             <input type="tel" id="phone" name="phone" required pattern="[0-9+\-\s]{7,15}" placeholder="+91 98xxxxxxxx" />
           </div>
 
-          <div class="row-2">
-            <div class="field">
-              <label for="clinic">Preferred Clinic</label>
-              <div class="select-wrap">
-                <select id="clinic" name="clinic">
-                  <option value="">Select clinic</option>
-                  <option value="andheri">Andheri</option>
-                  <option value="lower-parel">Lower Parel</option>
-                  <option value="malad">Malad</option>
-                  <option value="mulund">Mulund</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="location">Current Location<span>*</span></label>
-              <input type="text" id="location" name="location" required placeholder="City / Area" />
+          <div class="field">
+            <label for="clinic">Preferred Clinic</label>
+            <div class="select-wrap">
+              <select id="clinic" name="clinic">
+                <option value="">Select clinic</option>
+                <option value="andheri">Andheri</option>
+                <option value="lower-parel">Lower Parel</option>
+                <option value="malad">Malad</option>
+                <option value="mulund">Mulund</option>
+              </select>
             </div>
           </div>
 
@@ -126,42 +102,13 @@
           </div>
 
           <div class="field">
-            <label for="service">What are you Looking For?<span>*</span></label>
+            <label for="budget">Your Budget<span>*</span></label>
             <div class="select-wrap">
-              <select id="service" name="service" required>
-                <option value="">Select treatment</option>
-                <option value="weight-loss">Weight Loss</option>
-                <option value="targeted-fat">Targeted Area Fat Reduction</option>
-                <option value="skin-tightening">Skin Tightening</option>
-                <option value="face-lifting">Face Lifting</option>
-                <option value="inch-loss">Inch Loss</option>
-                <option value="body-contouring">Body Contouring</option>
+              <select id="budget" name="budget" required>
+                <option value="">Select budget</option>
+                <option value="20k-30k">₹20,000 – ₹30,000</option>
+                <option value="30k-plus">₹30,000 &amp; Above</option>
               </select>
-            </div>
-          </div>
-
-          <div class="row-2">
-            <div class="field">
-              <label for="timing">When to Book?<span>*</span></label>
-              <div class="select-wrap">
-                <select id="timing" name="timing" required>
-                  <option value="">Select timing</option>
-                  <option value="asap">As Soon As Possible</option>
-                  <option value="this-month">This Month</option>
-                  <option value="next-month">Next Month</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="budget">Your Budget<span>*</span></label>
-              <div class="select-wrap">
-                <select id="budget" name="budget" required>
-                  <option value="">Select budget</option>
-                  <option value="20k-30k">₹20,000 – ₹30,000</option>
-                  <option value="30k-plus">₹30,000 &amp; Above</option>
-                </select>
-              </div>
             </div>
           </div>
 
@@ -171,13 +118,74 @@
           </label>
 
           <button type="submit" class="submit-btn">
-            Request Callback
+            Book Consultation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
 
           <p class="form-foot">By submitting, you agree to our terms &amp; privacy policy.</p>
         </form>
       </aside>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" aria-label="Why choose Shape-U">
+    <div class="features-head">
+      <span class="eyebrow">Why Shape-U</span>
+      <h2>Care designed around <em>you</em>.</h2>
+    </div>
+    <div class="features-inner">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M44 8 L56 20 L24 52 L12 52 L12 40 Z"/>
+            <line x1="38" y1="14" x2="50" y2="26"/>
+            <line x1="10" y1="10" x2="54" y2="54" stroke="currentColor" stroke-width="2.6"/>
+          </svg>
+        </div>
+        <h3>Non-Surgical</h3>
+        <p>No cuts. No incisions. Zero downtime — walk in, walk out.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M32 6 L52 14 V30 C52 42 43 52 32 58 C21 52 12 42 12 30 V14 Z"/>
+            <polyline points="22 32 29 39 43 24"/>
+          </svg>
+        </div>
+        <h3>Safe</h3>
+        <p>FDA-approved technology, performed by certified physicians.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="32" cy="32" r="22"/>
+            <path d="M32 14 V8" />
+            <path d="M22 18 L18 12" />
+            <path d="M42 18 L46 12" />
+            <path d="M22 32 a3 3 0 0 1 6 0" />
+            <path d="M36 32 a3 3 0 0 1 6 0" />
+            <path d="M24 44 C28 41 36 41 40 44"/>
+          </svg>
+        </div>
+        <h3>Painless</h3>
+        <p>Comfortable sessions — most clients feel only a mild warmth.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="32" cy="30" r="12"/>
+            <path d="M28 26 h6 a3 3 0 0 1 0 6 h-6 m0 0 l7 8 M28 26 v10" />
+            <path d="M10 50 C18 46 26 46 32 49 C38 52 46 52 54 50"/>
+            <path d="M14 56 C20 53 28 53 32 55 C36 57 44 57 50 56"/>
+          </svg>
+        </div>
+        <h3>Affordable</h3>
+        <p>Transparent pricing. Flexible EMI options to suit your budget.</p>
+      </div>
     </div>
   </section>
 
@@ -198,8 +206,8 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
           </span>
           <figcaption class="video-caption">
-            <strong>Dr. Nilima Dharkar</strong>
-            <span>Senior Family Physician</span>
+            <strong>Chris Singh</strong>
+            <span>Figured out her knee pain</span>
           </figcaption>
         </div>
       </figure>
@@ -213,8 +221,8 @@
         <div class="video-overlay">
           <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
           <figcaption class="video-caption">
-            <strong>Client Story</strong>
-            <span>Weight Loss Journey</span>
+            <strong>Shree Kumar Menon</strong>
+            <span>82.5 kg → 79.6 kg</span>
           </figcaption>
         </div>
       </figure>
@@ -228,8 +236,8 @@
         <div class="video-overlay">
           <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
           <figcaption class="video-caption">
-            <strong>Rajiv's Transformation</strong>
-            <span>Real Result</span>
+            <strong>Rajeev</strong>
+            <span>87 kg → 77 kg</span>
           </figcaption>
         </div>
       </figure>
@@ -243,8 +251,8 @@
         <div class="video-overlay">
           <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
           <figcaption class="video-caption">
-            <strong>Shape-U Clinic</strong>
-            <span>Experience</span>
+            <strong>Siddhesh</strong>
+            <span>Reduced 12.4 kg total</span>
           </figcaption>
         </div>
       </figure>
