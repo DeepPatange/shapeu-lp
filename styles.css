@@ -40,26 +40,26 @@ a { color: inherit; }
   background: var(--ink);
   color: rgba(255, 255, 255, 0.85);
   font-size: 12.5px;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
 }
 .topbar-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 9px 28px;
+  padding: 8px 24px;
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: center;
 }
 .topbar-item {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   color: rgba(255, 255, 255, 0.78);
 }
-.topbar-item svg { opacity: 0.75; }
-.topbar-right {
-  margin-left: auto;
-  color: rgba(255, 255, 255, 0.6);
+.topbar-item svg {
+  opacity: 0.7;
+  color: var(--red);
+  flex-shrink: 0;
 }
 
 /* ============ Header ============ */
@@ -1015,6 +1015,109 @@ a { color: inherit; }
 /* leave space at bottom so sticky bar never covers final CTA */
 body { padding-bottom: 76px; }
 
+/* ============ Exit Intent Modal ============ */
+.exit-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.exit-modal.is-open {
+  display: flex;
+  animation: exitFade .25s ease;
+}
+.exit-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 13, 17, 0.75);
+  backdrop-filter: blur(6px);
+}
+.exit-card {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  max-width: 460px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  animation: exitSlide .35s cubic-bezier(.2,.7,.2,1);
+}
+@keyframes exitFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes exitSlide {
+  from { transform: translateY(40px) scale(0.96); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+.exit-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(15, 20, 25, 0.06);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, transform .15s;
+  z-index: 2;
+}
+.exit-close:hover {
+  background: rgba(15, 20, 25, 0.12);
+  transform: rotate(90deg);
+}
+.exit-hero {
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe0e6 100%);
+  padding: 32px 28px 22px;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.exit-tag {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.exit-hero h2 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.exit-hero h2 em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--red);
+}
+.exit-hero p {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.exit-hero p strong { color: var(--ink); font-weight: 600; }
+.exit-form {
+  padding: 22px 28px 28px;
+}
+
 /* ============ Video Modal (vertical) ============ */
 .video-modal {
   position: fixed;
@@ -1399,7 +1502,6 @@ body { padding-bottom: 76px; }
 /* ============ Tablet ============ */
 @media (max-width: 1024px) {
   body { padding-bottom: 76px; }
-  .topbar-right { display: none; }
 
   .hero-wrap {
     grid-template-columns: 1fr;
@@ -1505,6 +1607,13 @@ body { padding-bottom: 76px; }
   .sticky-cta-btn { padding: 10px 16px; font-size: 12.5px; }
 
   .deco-dots, .deco-blur { display: none; }
+
+  .exit-modal { padding: 14px; }
+  .exit-card { border-radius: 16px; max-height: 94vh; }
+  .exit-hero { padding: 24px 20px 18px; border-radius: 16px 16px 0 0; }
+  .exit-hero h2 { font-size: 22px; }
+  .exit-hero p { font-size: 12.5px; }
+  .exit-form { padding: 18px 20px 22px; }
 }
 
 /* ============ Extra small ============ */
