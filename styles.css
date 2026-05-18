@@ -1092,6 +1092,11 @@ a { color: inherit; }
   color: var(--muted);
   margin-bottom: 22px;
 }
+.book-end p strong {
+  color: var(--red);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
 .book-end-btn {
   display: inline-flex;
   align-items: center;
