@@ -945,6 +945,95 @@ a { color: inherit; }
 .book-end-btn svg { transition: transform .2s; }
 .book-end-btn:hover svg { transform: translateX(3px); }
 
+/* ============ Floating Contact FABs ============ */
+.fab-stack {
+  position: fixed;
+  right: 20px;
+  bottom: 96px;
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fab {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  transition: transform .2s, box-shadow .25s, width .25s;
+  overflow: hidden;
+}
+.fab::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0;
+  z-index: 0;
+}
+.fab svg { position: relative; z-index: 1; }
+.fab-label {
+  position: absolute;
+  right: calc(100% + 10px);
+  white-space: nowrap;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateX(8px);
+  pointer-events: none;
+  transition: opacity .2s, transform .25s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.fab-label::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 5px solid var(--ink);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+.fab:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+.fab:hover .fab-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fab-whatsapp {
+  background: #25D366;
+}
+.fab-whatsapp::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: #25D366;
+  opacity: 0.45;
+  animation: fabPulse 2s ease-out infinite;
+  z-index: -1;
+}
+@keyframes fabPulse {
+  0%   { transform: scale(0.85); opacity: 0.5; }
+  100% { transform: scale(1.4);  opacity: 0; }
+}
+.fab-call {
+  background: var(--red);
+}
+
 /* ============ Sticky Bottom CTA ============ */
 .sticky-cta {
   position: fixed;
@@ -1605,6 +1694,10 @@ body { padding-bottom: 76px; }
   .sticky-cta-text span { display: none; }
   .sticky-cta-text strong { font-size: 12.5px; }
   .sticky-cta-btn { padding: 10px 16px; font-size: 12.5px; }
+  .fab-stack { right: 14px; bottom: 84px; gap: 10px; }
+  .fab { width: 48px; height: 48px; }
+  .fab svg { width: 22px; height: 22px; }
+  .fab-label { display: none; }
 
   .deco-dots, .deco-blur { display: none; }
 
