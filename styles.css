@@ -38,14 +38,15 @@ a { color: inherit; }
 /* ============ Top Bar ============ */
 .topbar {
   background: var(--ink);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 12.5px;
-  letter-spacing: 0.3px;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
 }
 .topbar-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 8px 24px;
+  padding: 10px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,11 +54,21 @@ a { color: inherit; }
 .topbar-item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.78);
+  gap: 10px;
+  color: #fff;
+}
+.topbar-item strong {
+  color: #fff;
+  font-weight: 700;
+}
+.topbar-item em {
+  font-style: normal;
+  color: #ffd9a6;
+  font-weight: 600;
+  letter-spacing: 0.6px;
 }
 .topbar-item svg {
-  opacity: 0.7;
+  opacity: 1;
   color: var(--red);
   flex-shrink: 0;
 }
@@ -898,6 +909,165 @@ a { color: inherit; }
   margin-top: 2px;
 }
 
+/* ============ Meet the Visionary ============ */
+.visionary {
+  padding: 72px 28px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.visionary::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: -120px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(200, 16, 46, 0.06), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.visionary-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.visionary-portrait {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.portrait-card {
+  aspect-ratio: 4 / 5;
+  border-radius: 22px;
+  background: linear-gradient(160deg, #eef2f7 0%, #dde3eb 100%);
+  position: relative;
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 60px rgba(15, 20, 25, 0.18);
+  overflow: hidden;
+}
+.portrait-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.portrait-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+.portrait-badge svg { color: var(--red); }
+
+.portrait-credentials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.cred-item {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 14px;
+  text-align: center;
+}
+.cred-num {
+  display: block;
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--ink);
+  line-height: 1;
+}
+.cred-num small {
+  font-size: 18px;
+  color: var(--red);
+  font-weight: 500;
+}
+.cred-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.visionary-text .eyebrow { margin-bottom: 12px; }
+.visionary-text h2 {
+  font-family: var(--serif);
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.visionary-text h2 em {
+  font-style: italic;
+  color: var(--red);
+  font-weight: 500;
+}
+.visionary-role {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.visionary-role strong { color: var(--ink); font-weight: 700; }
+
+.visionary-list {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+}
+.visionary-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.v-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  margin-top: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.12);
+}
+.visionary-list li strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 /* ============ Book Appointment (end of page) ============ */
 .book-end {
   background: linear-gradient(180deg, #fff 0%, var(--cream) 100%);
@@ -1591,6 +1761,11 @@ body { padding-bottom: 76px; }
 /* ============ Tablet ============ */
 @media (max-width: 1024px) {
   body { padding-bottom: 76px; }
+  .visionary { padding: 56px 24px; }
+  .visionary-wrap { grid-template-columns: 1fr; gap: 36px; max-width: 560px; }
+  .portrait-card { aspect-ratio: 16 / 10; }
+  .portrait-monogram { font-size: 96px; }
+  .visionary-text h2 { font-size: 36px; }
 
   .hero-wrap {
     grid-template-columns: 1fr;
@@ -1681,6 +1856,17 @@ body { padding-bottom: 76px; }
   .feature p { font-size: 12px; max-width: 180px; }
 
   .testimonials { padding: 48px 14px; }
+  .visionary { padding: 44px 16px; }
+  .visionary-wrap { gap: 24px; }
+  .portrait-card { aspect-ratio: 5 / 4; border-radius: 16px; }
+  .portrait-monogram { font-size: 72px; letter-spacing: -3px; }
+  .portrait-credentials { gap: 8px; }
+  .cred-item { padding: 12px 10px; border-radius: 10px; }
+  .cred-num { font-size: 22px; }
+  .cred-label { font-size: 10px; }
+  .visionary-text h2 { font-size: 28px; }
+  .visionary-role { font-size: 14px; margin-bottom: 18px; padding-bottom: 16px; }
+  .visionary-list li { font-size: 13.5px; gap: 10px; }
   .video-gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .video-caption strong { font-size: 12px; }
   .video-caption span { font-size: 10.5px; }
