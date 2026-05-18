@@ -48,26 +48,6 @@
       </svg>
     </span>
 
-    <!-- single golden offer -->
-    <div class="gold-offer" aria-label="Limited time offer">
-      <span class="gold-tag">
-        <span class="gold-dot"></span>
-        Exclusive Offer
-      </span>
-      <div class="gold-main">
-        <span class="gold-kg">
-          <span class="gold-kg-num">1</span>
-          <span class="gold-kg-unit">KG</span>
-        </span>
-        <span class="gold-detail">
-          <span class="gold-detail-top">Weight Loss</span>
-          <span class="gold-detail-bottom">on your first session</span>
-        </span>
-        <span class="gold-free">FREE</span>
-      </div>
-      <span class="gold-shine" aria-hidden="true"></span>
-    </div>
-
     <div class="hero-wrap">
       <div class="hero-visual">
         <picture>
@@ -78,7 +58,7 @@
 
       <aside class="hero-form-card">
         <h2 class="form-title">Book Your <em>Free</em> Consultation</h2>
-        <p class="form-sub">Includes a complimentary Body Composition Analysis worth <strong>₹2,500</strong></p>
+        <p class="form-sub">Free BCA and Consultation worth <strong>₹2,500</strong></p>
 
         <form class="lead-form" onsubmit="event.preventDefault(); window.location.href='thank-you.html';">
           <div class="field">
@@ -92,9 +72,9 @@
           </div>
 
           <div class="field">
-            <label for="clinic">Preferred Clinic</label>
+            <label for="clinic">Preferred Clinic<span>*</span></label>
             <div class="select-wrap">
-              <select id="clinic" name="clinic">
+              <select id="clinic" name="clinic" required>
                 <option value="">Select clinic</option>
                 <option value="andheri">Andheri</option>
                 <option value="lower-parel">Lower Parel</option>
@@ -105,8 +85,8 @@
           </div>
 
           <div class="field">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="name@example.com" />
+            <label for="email">Email Address<span>*</span></label>
+            <input type="email" id="email" name="email" required placeholder="name@example.com" />
           </div>
 
           <div class="field">
@@ -121,7 +101,7 @@
           </div>
 
           <label class="consent">
-            <input type="checkbox" name="consent" checked />
+            <input type="checkbox" name="consent" required checked />
             <span>I consent to receive updates and appointment messages on WhatsApp at the number I've provided.</span>
           </label>
 
@@ -140,59 +120,59 @@
   <section class="features" aria-label="Why choose Shape-U">
     <div class="features-head">
       <span class="eyebrow">Why Shape-U</span>
-      <h2>Care designed around <em>you</em>.</h2>
+      <h2>Mumbai's most trusted name in <em>non-surgical weight loss</em>.</h2>
     </div>
     <div class="features-inner">
       <div class="feature">
         <div class="feature-icon">
           <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M44 8 L56 20 L24 52 L12 52 L12 40 Z"/>
-            <line x1="38" y1="14" x2="50" y2="26"/>
-            <line x1="10" y1="10" x2="54" y2="54" stroke="currentColor" stroke-width="2.6"/>
+            <path d="M16 8 H48 V20 a16 16 0 0 1 -32 0 Z"/>
+            <path d="M16 14 H8 a6 6 0 0 0 6 10"/>
+            <path d="M48 14 H56 a6 6 0 0 1 -6 10"/>
+            <path d="M26 40 V48 H38 V40"/>
+            <rect x="20" y="48" width="24" height="8" rx="2"/>
           </svg>
         </div>
-        <h3>Non-Surgical</h3>
-        <p>No cuts. No incisions. Zero downtime — walk in, walk out.</p>
+        <h3>25+ Years of Excellence</h3>
+        <p>Pioneering non-surgical weight loss in India since 1998.</p>
       </div>
 
       <div class="feature">
         <div class="feature-icon">
           <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M32 6 L52 14 V30 C52 42 43 52 32 58 C21 52 12 42 12 30 V14 Z"/>
-            <polyline points="22 32 29 39 43 24"/>
+            <path d="M22 8 v14 a10 10 0 0 0 20 0 V8"/>
+            <path d="M18 8 h8 M38 8 h8"/>
+            <path d="M32 32 v10 a10 10 0 0 0 10 10 a8 8 0 0 0 8 -8 v-4"/>
+            <circle cx="50" cy="38" r="4"/>
           </svg>
         </div>
-        <h3>Safe</h3>
-        <p>FDA-approved technology, performed by certified physicians.</p>
+        <h3>Doctor-Led Care</h3>
+        <p>Doctor-prescribed protocols, delivered by trained therapists.</p>
       </div>
 
       <div class="feature">
         <div class="feature-icon">
           <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="32" cy="32" r="22"/>
-            <path d="M32 14 V8" />
-            <path d="M22 18 L18 12" />
-            <path d="M42 18 L46 12" />
-            <path d="M22 32 a3 3 0 0 1 6 0" />
-            <path d="M36 32 a3 3 0 0 1 6 0" />
-            <path d="M24 44 C28 41 36 41 40 44"/>
+            <path d="M32 8 L38 24 L56 26 L42 38 L46 56 L32 46 L18 56 L22 38 L8 26 L26 24 Z"/>
           </svg>
         </div>
-        <h3>Painless</h3>
-        <p>Comfortable sessions — most clients feel only a mild warmth.</p>
+        <h3>10,000+ Transformations</h3>
+        <p>Mumbai's highest-rated weight loss clinic with proven results.</p>
       </div>
 
       <div class="feature">
         <div class="feature-icon">
           <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="32" cy="30" r="12"/>
-            <path d="M28 26 h6 a3 3 0 0 1 0 6 h-6 m0 0 l7 8 M28 26 v10" />
-            <path d="M10 50 C18 46 26 46 32 49 C38 52 46 52 54 50"/>
-            <path d="M14 56 C20 53 28 53 32 55 C36 57 44 57 50 56"/>
+            <circle cx="24" cy="22" r="10"/>
+            <path d="M22 32 v6 a4 4 0 0 0 4 4 h2"/>
+            <path d="M28 42 a4 4 0 0 1 4 4 v2"/>
+            <rect x="22" y="44" width="22" height="14" rx="3"/>
+            <path d="M28 44 v-4 a4 4 0 0 1 4 -4 h4 a4 4 0 0 1 4 4 v4"/>
+            <line x1="38" y1="50" x2="38" y2="52"/>
           </svg>
         </div>
-        <h3>Affordable</h3>
-        <p>Transparent pricing. Flexible EMI options to suit your budget.</p>
+        <h3>Research-Backed</h3>
+        <p>AIAARO-affiliated, science-led approach to obesity care.</p>
       </div>
     </div>
   </section>
@@ -201,6 +181,11 @@
   <section class="testimonials" id="testimonials">
     <span class="deco deco-blur deco-blur--left"></span>
     <span class="deco deco-blur deco-blur--right"></span>
+
+    <div class="section-head">
+      <span class="eyebrow">Real Stories</span>
+      <h2>Transformations that <em>speak for themselves</em>.</h2>
+    </div>
 
     <div class="video-gallery">
       <figure class="video-card">
@@ -277,29 +262,13 @@
       <div class="visionary-portrait">
         <div class="portrait-card">
           <img src="Assets/dr-mandot.png" alt="Dr. Mahesh Mandot, Founder of Shape-U Clinic" class="portrait-photo" />
-          <span class="portrait-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            Verified Founder
-          </span>
-        </div>
-        <div class="portrait-credentials">
-          <div class="cred-item">
-            <span class="cred-num">30<small>+</small></span>
-            <span class="cred-label">Years of Care</span>
-          </div>
-          <div class="cred-item">
-            <span class="cred-num">1998</span>
-            <span class="cred-label">Founded Shape-U</span>
-          </div>
         </div>
       </div>
 
       <div class="visionary-text">
         <span class="eyebrow">Meet the Visionary</span>
         <h2>Dr. Mahesh <em>Mandot</em></h2>
-        <p class="visionary-role">Founder Member of <strong>AIAARO</strong> — All India Association for Advancing Research in Obesity</p>
+        <p class="visionary-role">Founder Member of AIAARO (All India Association for Advancing Research in Obesity)</p>
 
         <ul class="visionary-list">
           <li>
@@ -309,10 +278,6 @@
           <li>
             <span class="v-dot"></span>
             <span>Established <strong>Shape-U Clinic in 1998</strong> with a vision to deliver non-surgical weight loss</span>
-          </li>
-          <li>
-            <span class="v-dot"></span>
-            <span>Founder &amp; Executive Member of <strong>AIAARO</strong>, India's leading obesity research body</span>
           </li>
           <li>
             <span class="v-dot"></span>
@@ -331,7 +296,7 @@
   <section class="book-end">
     <div class="book-end-inner">
       <h2>Ready to lose stubborn fat?</h2>
-      <p>Free consultation + complimentary BCA worth ₹2,500.</p>
+      <p>Free BCA and Consultation worth ₹2,500.</p>
       <a href="#contact" class="book-end-btn" onclick="scrollToForm(event)">
         Book Appointment
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -365,7 +330,7 @@
   <div class="sticky-cta" id="stickyCta">
     <div class="sticky-cta-inner">
       <div class="sticky-cta-text">
-        <strong>Free Consultation + BCA worth ₹2,500</strong>
+        <strong>Free BCA and Consultation worth ₹2,500</strong>
         <span>Limited slots available this week</span>
       </div>
       <a href="#contact" class="sticky-cta-btn" onclick="scrollToForm(event)">
@@ -384,8 +349,8 @@
       </button>
       <div class="exit-hero">
         <span class="exit-tag">Wait! Before you go</span>
-        <h2 id="exitTitle">Claim your <em>FREE</em> 1 KG Weight Loss</h2>
-        <p>Plus a complimentary Body Composition Analysis worth <strong>₹2,500</strong>. Drop your details — we'll call you within 24 hours.</p>
+        <h2 id="exitTitle">Wait — get your <em>Free</em> Consultation</h2>
+        <p>Free BCA and Consultation worth <strong>₹2,500</strong>. Drop your details — we'll call you within 24 hours.</p>
       </div>
 
       <form class="lead-form exit-form" onsubmit="handleExitSubmit(event)">
@@ -398,9 +363,9 @@
           <input type="tel" id="exit-phone" name="phone" required pattern="[0-9+\-\s]{7,15}" placeholder="+91 98xxxxxxxx" />
         </div>
         <div class="field">
-          <label for="exit-clinic">Preferred Clinic</label>
+          <label for="exit-clinic">Preferred Clinic<span>*</span></label>
           <div class="select-wrap">
-            <select id="exit-clinic" name="clinic">
+            <select id="exit-clinic" name="clinic" required>
               <option value="">Select clinic</option>
               <option value="andheri">Andheri</option>
               <option value="lower-parel">Lower Parel</option>
@@ -410,8 +375,8 @@
           </div>
         </div>
         <div class="field">
-          <label for="exit-email">Email Address</label>
-          <input type="email" id="exit-email" name="email" placeholder="name@example.com" />
+          <label for="exit-email">Email Address<span>*</span></label>
+          <input type="email" id="exit-email" name="email" required placeholder="name@example.com" />
         </div>
         <div class="field">
           <label for="exit-budget">Your Budget<span>*</span></label>
@@ -424,11 +389,11 @@
           </div>
         </div>
         <label class="consent">
-          <input type="checkbox" name="consent" checked />
+          <input type="checkbox" name="consent" required checked />
           <span>I consent to receive updates and appointment messages on WhatsApp at the number I've provided.</span>
         </label>
         <button type="submit" class="submit-btn">
-          Claim My Free Offer
+          Book My Free Consultation
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
         <p class="form-foot">By submitting, you agree to our terms &amp; privacy policy.</p>
@@ -521,12 +486,14 @@
 
     function showExitModal() {
       if (sessionStorage.getItem(EXIT_KEY)) return;
+      if (!exitModal) return;
       sessionStorage.setItem(EXIT_KEY, '1');
       exitModal.classList.add('is-open');
       document.body.style.overflow = 'hidden';
       detachExitTriggers();
     }
     function closeExitModal() {
+      if (!exitModal) return;
       exitModal.classList.remove('is-open');
       document.body.style.overflow = '';
     }
@@ -534,22 +501,19 @@
       e.preventDefault();
       window.location.href = 'thank-you.html';
     }
+    // Expose so inline onclick handlers can find them regardless of scope
+    window.closeExitModal = closeExitModal;
+    window.handleExitSubmit = handleExitSubmit;
+    // Dev helper: clear the flag to retest the popup — call shapeuResetExit() in console
+    window.shapeuResetExit = () => { sessionStorage.removeItem(EXIT_KEY); console.log('Exit popup will fire again on next trigger.'); };
 
-    // Desktop trigger: cursor exits top of viewport (mouseleave is more reliable than mouseout)
+    // Desktop trigger: cursor exits top of viewport
     function onMouseLeave(e) {
       if (e.clientY <= 10) showExitModal();
     }
-    // Backup desktop trigger: cursor moving fast upward near top
-    let lastMouseY = 0;
-    let lastMouseT = Date.now();
-    function onMouseMove(e) {
-      const now = Date.now();
-      const dy = e.clientY - lastMouseY;
-      const dt = now - lastMouseT;
-      // moving up fast (more than 80px in less than 100ms) while already near top
-      if (dy < -80 && dt < 100 && e.clientY < 60) showExitModal();
-      lastMouseY = e.clientY;
-      lastMouseT = now;
+    // Backup desktop trigger via mouseout (some browsers/iframes fire this when mouseleave misses)
+    function onMouseOut(e) {
+      if (!e.relatedTarget && (e.clientY <= 0 || e.clientY <= 5)) showExitModal();
     }
     // Mobile trigger: fast scroll up near top
     let lastScrollY = window.scrollY;
@@ -572,7 +536,7 @@
 
     function detachExitTriggers() {
       document.documentElement.removeEventListener('mouseleave', onMouseLeave);
-      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseout', onMouseOut);
       window.removeEventListener('scroll', onScrollExit);
       window.removeEventListener('popstate', onPopState);
       window.removeEventListener('blur', onWindowBlur);
@@ -580,7 +544,7 @@
 
     if (!sessionStorage.getItem(EXIT_KEY)) {
       document.documentElement.addEventListener('mouseleave', onMouseLeave);
-      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseout', onMouseOut);
       window.addEventListener('scroll', onScrollExit, { passive: true });
       window.addEventListener('blur', onWindowBlur);
       if ('pushState' in history) history.pushState({ shapeu: 1 }, '');
