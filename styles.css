@@ -1786,7 +1786,7 @@ body { padding-bottom: 76px; }
   .hero-form-card {
     position: static;
     transform: none;
-    margin: -50px auto 0;
+    margin: 18px auto 0;
     width: 100%;
     max-width: 520px;
     padding: 24px 22px;
@@ -1846,7 +1846,7 @@ body { padding-bottom: 76px; }
   .hero-visual img { border-radius: 14px; }
   .hero-form-card {
     padding: 22px 18px;
-    margin-top: -28px;
+    margin-top: 14px;
     border-radius: 14px;
     max-width: 100%;
   }
