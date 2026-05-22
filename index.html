@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWMPDCR');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shape-U Obesity Clinic — Non-Surgical Weight Loss with U-lipolysis</title>
@@ -10,6 +18,10 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWMPDCR"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- TOP BAR -->
   <div class="topbar">
@@ -36,6 +48,21 @@
 
   <!-- HERO -->
   <section class="hero" id="contact">
+    <!-- TOP OFFER BUTTON -->
+    <div class="offer-bar">
+      <a href="#contact" class="offer-coupon" onclick="scrollToForm(event)" aria-label="Get your 1st 1 KG for free">
+        <span class="coupon-lead">
+          <span class="coupon-tagline">Limited Offer</span>
+          <span class="coupon-headline">Get your 1<sup>st</sup> 1 KG</span>
+        </span>
+        <span class="coupon-chip">
+          <span class="coupon-chip-for">for</span>
+          <span class="coupon-chip-free">FREE</span>
+        </span>
+        <span class="offer-shine" aria-hidden="true"></span>
+      </a>
+    </div>
+
     <!-- decorative shapes -->
     <span class="deco deco-dots" aria-hidden="true">
       <svg width="120" height="120" viewBox="0 0 120 120">
@@ -67,7 +94,7 @@
 
           <div class="field">
             <label for="phone">Contact Number<span>*</span></label>
-            <input type="tel" id="phone" name="phone" required pattern="[0-9+\-\s]{7,15}" placeholder="+91 98xxxxxxxx" />
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10" minlength="10" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)" />
           </div>
 
           <div class="field">
@@ -305,7 +332,7 @@
 
   <!-- FLOATING CONTACT FABS -->
   <div class="fab-stack" aria-label="Quick contact">
-    <a href="https://wa.me/919372776721?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20at%20Shape-U."
+    <a href="https://wa.me/919372776731?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20at%20Shape-U."
        class="fab fab-whatsapp"
        target="_blank"
        rel="noopener"
@@ -315,7 +342,7 @@
       </svg>
       <span class="fab-label">Chat on WhatsApp</span>
     </a>
-    <a href="tel:+918433824234"
+    <a href="tel:+919372776731"
        class="fab fab-call"
        aria-label="Call Shape-U">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -359,7 +386,7 @@
         </div>
         <div class="field">
           <label for="exit-phone">Contact Number<span>*</span></label>
-          <input type="tel" id="exit-phone" name="phone" required pattern="[0-9+\-\s]{7,15}" placeholder="+91 98xxxxxxxx" />
+          <input type="tel" id="exit-phone" name="phone" required pattern="[0-9]{10}" maxlength="10" minlength="10" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)" />
         </div>
         <div class="field">
           <label for="exit-clinic">Preferred Clinic<span>*</span></label>
