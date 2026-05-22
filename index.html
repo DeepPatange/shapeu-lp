@@ -355,9 +355,13 @@
   <!-- STICKY BOTTOM CTA -->
   <div class="sticky-cta" id="stickyCta">
     <div class="sticky-cta-inner">
-      <div class="sticky-cta-text">
-        <strong>Body Composition Analysis &amp; first Consultation worth ₹2,500 — free</strong>
-        <span>Limited slots available this week</span>
+      <div class="sticky-timer" aria-live="polite">
+        <span class="timer-label">Offer ends in</span>
+        <span class="timer-clock">
+          <span class="timer-digit" id="timerMin">03</span>
+          <span class="timer-sep">:</span>
+          <span class="timer-digit" id="timerSec">00</span>
+        </span>
       </div>
       <a href="#contact" class="sticky-cta-btn" onclick="scrollToForm(event)">
         Book Appointment
@@ -613,6 +617,30 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && exitModal.classList.contains('is-open')) closeExitModal();
     });
+
+    // ===== 5-minute countdown timer in sticky bar =====
+    (function startCountdown() {
+      const TIMER_KEY = 'shapeu_timer_start';
+      const DURATION_MS = 3 * 60 * 1000;
+      const minEl = document.getElementById('timerMin');
+      const secEl = document.getElementById('timerSec');
+      if (!minEl || !secEl) return;
+      let start = parseInt(sessionStorage.getItem(TIMER_KEY), 10);
+      if (!start || isNaN(start)) {
+        start = Date.now();
+        sessionStorage.setItem(TIMER_KEY, String(start));
+      }
+      function tick() {
+        const remaining = Math.max(0, DURATION_MS - (Date.now() - start));
+        const m = Math.floor(remaining / 60000);
+        const s = Math.floor((remaining % 60000) / 1000);
+        minEl.textContent = String(m).padStart(2, '0');
+        secEl.textContent = String(s).padStart(2, '0');
+        if (remaining <= 0) clearInterval(int);
+      }
+      tick();
+      const int = setInterval(tick, 1000);
+    })();
 
     function scrollToForm(e) {
       if (e) e.preventDefault();
