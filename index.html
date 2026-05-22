@@ -59,7 +59,7 @@
       <aside class="hero-form-card">
         <h2 class="form-title">Book Your <em>Free</em> BCA &amp; Consultation</h2>
 
-        <form class="lead-form" onsubmit="event.preventDefault(); window.location.href='thank-you.html';">
+        <form class="lead-form" onsubmit="submitLead(event, 'hero')">
           <div class="field">
             <label for="name">Your Name<span>*</span></label>
             <input type="text" id="name" name="name" required placeholder="Enter your full name" />
@@ -352,7 +352,7 @@
         <p>Body Composition Analysis and first Consultation worth <strong>₹2,500</strong> for free. Drop your details — we'll call you within 24 hours.</p>
       </div>
 
-      <form class="lead-form exit-form" onsubmit="handleExitSubmit(event)">
+      <form class="lead-form exit-form" onsubmit="submitLead(event, 'exit_popup')">
         <div class="field">
           <label for="exit-name">Your Name<span>*</span></label>
           <input type="text" id="exit-name" name="name" required placeholder="Enter your full name" />
@@ -500,6 +500,40 @@
       e.preventDefault();
       window.location.href = 'thank-you.html';
     }
+
+    // Shared lead form submit — POSTs to Google Apps Script then redirects to thank-you
+    const LEADS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxl3cjQzGrjUVL4XBIEjGThjIsEh_OfBBLK7R7vUO9Kz6098kwraVdF8h-RtpoWXJHaqw/exec';
+    function submitLead(e, source) {
+      e.preventDefault();
+      const form = e.target;
+      const fd = new FormData(form);
+      const payload = {
+        source: source,
+        name: (fd.get('name') || '').toString().trim(),
+        phone: (fd.get('phone') || '').toString().trim(),
+        clinic: (fd.get('clinic') || '').toString().trim(),
+        email: (fd.get('email') || '').toString().trim(),
+        budget: (fd.get('budget') || '').toString().trim(),
+        consent: fd.get('consent') ? true : false
+      };
+      // Disable submit button to avoid duplicate posts
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; btn.style.cursor = 'wait'; }
+
+      // Fire-and-forget POST (Apps Script needs no-cors; response is opaque but data is recorded)
+      fetch(LEADS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).finally(() => {
+        window.location.href = 'thank-you.html';
+      });
+
+      // Safety net — redirect anyway after 2.5s even if fetch hangs
+      setTimeout(() => { window.location.href = 'thank-you.html'; }, 2500);
+    }
+    window.submitLead = submitLead;
     // Expose so inline onclick handlers can find them regardless of scope
     window.closeExitModal = closeExitModal;
     window.handleExitSubmit = handleExitSubmit;
