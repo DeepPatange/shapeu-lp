@@ -94,7 +94,19 @@
 
           <div class="field">
             <label for="phone">Contact Number<span>*</span></label>
-            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10" minlength="10" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)" />
+            <div class="phone-row">
+              <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10" minlength="10" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10); refreshOtpUi('hero')" />
+              <button type="button" class="otp-btn" id="hero-send-otp" onclick="sendOtp('hero')" disabled>Send OTP</button>
+            </div>
+          </div>
+
+          <div class="field otp-field" id="hero-otp-field" hidden>
+            <label for="hero-otp">Enter OTP<span>*</span></label>
+            <div class="phone-row">
+              <input type="text" id="hero-otp" pattern="[0-9]{6}" maxlength="6" minlength="6" inputmode="numeric" placeholder="6-digit code" oninput="this.value=this.value.replace(/\D/g,'').slice(0,6)" />
+              <button type="button" class="otp-btn otp-btn-verify" onclick="verifyOtp('hero')">Verify</button>
+            </div>
+            <span class="otp-status" id="hero-otp-status"></span>
 
           <div class="field">
             <label for="clinic">Preferred Clinic<span>*</span></label>
@@ -389,7 +401,19 @@
         </div>
         <div class="field">
           <label for="exit-phone">Contact Number<span>*</span></label>
-          <input type="tel" id="exit-phone" name="phone" required pattern="[0-9]{10}" maxlength="10" minlength="10" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)" />
+          <div class="phone-row">
+            <input type="tel" id="exit-phone" name="phone" required pattern="[0-9]{10}" maxlength="10" minlength="10" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10); refreshOtpUi('exit_popup')" />
+            <button type="button" class="otp-btn" id="exit_popup-send-otp" onclick="sendOtp('exit_popup')" disabled>Send OTP</button>
+          </div>
+        </div>
+
+        <div class="field otp-field" id="exit_popup-otp-field" hidden>
+          <label for="exit-otp">Enter OTP<span>*</span></label>
+          <div class="phone-row">
+            <input type="text" id="exit-otp" pattern="[0-9]{6}" maxlength="6" minlength="6" inputmode="numeric" placeholder="6-digit code" oninput="this.value=this.value.replace(/\D/g,'').slice(0,6)" />
+            <button type="button" class="otp-btn otp-btn-verify" onclick="verifyOtp('exit_popup')">Verify</button>
+          </div>
+          <span class="otp-status" id="exit_popup-otp-status"></span>
         </div>
         <div class="field">
           <label for="exit-clinic">Preferred Clinic<span>*</span></label>
@@ -429,6 +453,71 @@
       </form>
     </div>
   </div>
+
+  <!-- Invisible reCAPTCHA container used by Firebase Phone Auth -->
+  <div id="recaptcha-container"></div>
+
+  <!-- Firebase Phone Auth (modular) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCkxEiDWQPTJJ-B59KF9akUG4sbX3Pmi1M",
+      authDomain: "shape-u-landing.firebaseapp.com",
+      projectId: "shape-u-landing",
+      storageBucket: "shape-u-landing.firebasestorage.app",
+      messagingSenderId: "412746944465",
+      appId: "1:412746944465:web:cee443e1df903fe435daf0",
+      measurementId: "G-LKPHKWV70Y"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    auth.languageCode = 'en';
+
+    window.fbConfirm = { hero: null, exit_popup: null };
+    window.fbVerifiedPhone = { hero: null, exit_popup: null };
+    window.fbReady = true;
+
+    function getVerifier() {
+      if (!window.fbVerifier) {
+        window.fbVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', { size: 'invisible' });
+      }
+      return window.fbVerifier;
+    }
+
+    window.fbSendOtp = async function(source) {
+      const phoneInput = source === 'hero' ? document.getElementById('phone') : document.getElementById('exit-phone');
+      const phone = phoneInput.value;
+      if (!/^\d{10}$/.test(phone)) return { ok: false, error: 'Invalid phone' };
+      try {
+        const verifier = getVerifier();
+        const result = await signInWithPhoneNumber(auth, '+91' + phone, verifier);
+        window.fbConfirm[source] = result;
+        return { ok: true };
+      } catch (err) {
+        console.error('Firebase sendOtp error', err);
+        // Reset verifier on failure so user can retry
+        try { if (window.fbVerifier) { window.fbVerifier.clear(); window.fbVerifier = null; } } catch (e) {}
+        return { ok: false, error: err.code || err.message };
+      }
+    };
+
+    window.fbVerifyOtp = async function(source, code) {
+      const result = window.fbConfirm[source];
+      if (!result) return { ok: false, error: 'No OTP session' };
+      try {
+        await result.confirm(code);
+        const phone = (source === 'hero' ? document.getElementById('phone') : document.getElementById('exit-phone')).value;
+        window.fbVerifiedPhone[source] = phone;
+        return { ok: true };
+      } catch (err) {
+        console.error('Firebase verifyOtp error', err);
+        return { ok: false, error: err.code || err.message };
+      }
+    };
+  </script>
 
   <!-- VIDEO MODAL -->
   <div class="video-modal" id="videoModal" onclick="closeModal(event)">
@@ -531,23 +620,116 @@
       window.location.href = 'thank-you.html';
     }
 
-    // Shared lead form submit — POSTs to Google Apps Script then redirects to thank-you
+    // ===== Leads + Firebase Phone OTP =====
     const LEADS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzkIgMv05lfotvviewxGcAFksFyFoyn-TNVMu4yQrzIpPmcRvSOLEbYXBvtTfT7OlENtw/exec';
+
+    function getPhoneEl(source) {
+      return source === 'hero' ? document.getElementById('phone') : document.getElementById('exit-phone');
+    }
+    function getOtpEl(source) {
+      return source === 'hero' ? document.getElementById('hero-otp') : document.getElementById('exit-otp');
+    }
+
+    function refreshOtpUi(source) {
+      const phone = getPhoneEl(source).value;
+      const sendBtn = document.getElementById(source + '-send-otp');
+      const isReady = /^\d{10}$/.test(phone);
+      const verified = window.fbVerifiedPhone && window.fbVerifiedPhone[source];
+      if (verified && verified !== phone) {
+        window.fbVerifiedPhone[source] = null;
+        document.getElementById(source + '-otp-field').hidden = true;
+        const s = document.getElementById(source + '-otp-status');
+        s.textContent = '';
+        s.className = 'otp-status';
+        sendBtn.textContent = 'Send OTP';
+        getPhoneEl(source).disabled = false;
+        const otpEl = getOtpEl(source);
+        if (otpEl) { otpEl.disabled = false; otpEl.value = ''; }
+      }
+      const isVerified = window.fbVerifiedPhone && window.fbVerifiedPhone[source] === phone;
+      sendBtn.disabled = !isReady || isVerified;
+      if (isVerified) sendBtn.textContent = '✓ Verified';
+    }
+
+    async function sendOtp(source) {
+      if (!window.fbSendOtp) { alert('Verification not ready, please refresh and try again.'); return; }
+      const phone = getPhoneEl(source).value;
+      if (!/^\d{10}$/.test(phone)) return;
+      const btn = document.getElementById(source + '-send-otp');
+      const status = document.getElementById(source + '-otp-status');
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.textContent = '';
+      status.className = 'otp-status';
+
+      const res = await window.fbSendOtp(source);
+      if (res.ok) {
+        document.getElementById(source + '-otp-field').hidden = false;
+        getOtpEl(source).focus();
+        btn.textContent = 'Resend OTP';
+        btn.disabled = false;
+        status.textContent = 'OTP sent to +91 ' + phone;
+        status.className = 'otp-status otp-info';
+      } else {
+        btn.textContent = original;
+        btn.disabled = false;
+        let msg = 'Could not send OTP. Try again.';
+        if (res.error && res.error.indexOf('quota') >= 0) msg = 'Daily SMS limit reached. Please try later.';
+        if (res.error && res.error.indexOf('invalid-phone') >= 0) msg = 'Invalid phone number.';
+        if (res.error && res.error.indexOf('captcha') >= 0) msg = 'Verification check failed. Please reload page.';
+        status.textContent = msg;
+        status.className = 'otp-status otp-err';
+      }
+    }
+
+    async function verifyOtp(source) {
+      const code = getOtpEl(source).value;
+      const status = document.getElementById(source + '-otp-status');
+      if (!/^\d{6}$/.test(code)) {
+        status.textContent = 'Enter the 6-digit code.';
+        status.className = 'otp-status otp-err';
+        return;
+      }
+      const res = await window.fbVerifyOtp(source, code);
+      if (res.ok) {
+        status.textContent = '✓ Phone verified';
+        status.className = 'otp-status otp-ok';
+        getPhoneEl(source).disabled = true;
+        getOtpEl(source).disabled = true;
+        const sendBtn = document.getElementById(source + '-send-otp');
+        sendBtn.textContent = '✓ Verified';
+        sendBtn.disabled = true;
+      } else {
+        status.textContent = 'Incorrect or expired code. Try again.';
+        status.className = 'otp-status otp-err';
+      }
+    }
+
     function submitLead(e, source) {
       e.preventDefault();
       const form = e.target;
       const fd = new FormData(form);
+      const phone = (fd.get('phone') || '').toString().trim();
+
+      const verified = window.fbVerifiedPhone && window.fbVerifiedPhone[source] === phone;
+      if (!verified) {
+        alert('Please verify your phone number with the OTP first.');
+        return;
+      }
+
       const payload = {
         source: source,
         name: (fd.get('name') || '').toString().trim(),
-        phone: (fd.get('phone') || '').toString().trim(),
+        phone: phone,
         clinic: (fd.get('clinic') || '').toString().trim(),
         email: (fd.get('email') || '').toString().trim(),
         budget: (fd.get('budget') || '').toString().trim(),
-        consent: fd.get('consent') ? true : false
+        consent: fd.get('consent') ? true : false,
+        verified: true
       };
       const btn = form.querySelector('button[type="submit"]');
-      if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; btn.style.cursor = 'wait'; }
+      if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; btn.style.cursor = 'wait'; btn.textContent = 'Submitting…'; }
 
       fetch(LEADS_ENDPOINT, {
         method: 'POST',
@@ -559,6 +741,10 @@
       });
       setTimeout(() => { window.location.href = 'thank-you.html'; }, 2500);
     }
+
+    window.sendOtp = sendOtp;
+    window.verifyOtp = verifyOtp;
+    window.refreshOtpUi = refreshOtpUi;
     window.submitLead = submitLead;
     // Expose so inline onclick handlers can find them regardless of scope
     window.closeExitModal = closeExitModal;
