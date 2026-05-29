@@ -652,6 +652,46 @@ a { color: inherit; }
   margin-bottom: 4px;
 }
 .lead-form label span { color: var(--red); }
+/* OTP fields */
+.phone-row {
+  display: flex;
+  gap: 6px;
+  align-items: stretch;
+}
+.phone-row input {
+  flex: 1;
+  min-width: 0;
+}
+.otp-btn {
+  flex-shrink: 0;
+  padding: 0 12px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0.3px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background .15s, opacity .15s;
+  white-space: nowrap;
+}
+.otp-btn:hover:not(:disabled) { background: var(--red); border-color: var(--red); }
+.otp-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.otp-btn-verify { background: var(--red); border-color: var(--red); }
+.otp-status {
+  display: block;
+  font-size: 11px;
+  margin-top: 5px;
+  color: var(--muted);
+  min-height: 14px;
+}
+.otp-status.otp-ok  { color: #15803d; font-weight: 600; }
+.otp-status.otp-err { color: var(--red); font-weight: 600; }
+.otp-status.otp-info { color: var(--muted); }
+[hidden] { display: none !important; }
+
 .lead-form input,
 .lead-form select {
   width: 100%;
