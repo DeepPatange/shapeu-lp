@@ -576,9 +576,9 @@
         const s = document.getElementById(source + '-otp-status');
         s.textContent = ''; s.className = 'otp-status';
         sendBtn.textContent = 'Send OTP';
-        getEmailEl(source).disabled = false;
+        getEmailEl(source).readOnly = false;
         const otpEl = getOtpEl(source);
-        if (otpEl) { otpEl.disabled = false; otpEl.value = ''; }
+        if (otpEl) { otpEl.readOnly = false; otpEl.value = ''; }
       }
       const isVerified = verifiedEmail[source] === email;
       sendBtn.disabled = !isValidEmail(email) || isVerified;
@@ -642,8 +642,8 @@
           verifiedEmail[source] = email;
           status.textContent = '✓ Email verified';
           status.className = 'otp-status otp-ok';
-          getEmailEl(source).disabled = true;
-          getOtpEl(source).disabled = true;
+          getEmailEl(source).readOnly = true;
+          getOtpEl(source).readOnly = true;
           const sendBtn = document.getElementById(source + '-send-otp');
           sendBtn.textContent = '✓ Verified';
           sendBtn.disabled = true;
