@@ -369,7 +369,7 @@
       <div class="sticky-timer" aria-live="polite">
         <span class="timer-label">Offer ends in</span>
         <span class="timer-clock">
-          <span class="timer-digit" id="timerMin">03</span>
+          <span class="timer-digit" id="timerMin">02</span>
           <span class="timer-sep">:</span>
           <span class="timer-digit" id="timerSec">00</span>
         </span>
@@ -746,7 +746,12 @@
     // ===== 5-minute countdown timer in sticky bar =====
     (function startCountdown() {
       const TIMER_KEY = 'shapeu_timer_start';
-      const DURATION_MS = 3 * 60 * 1000;
+      const DURATION_MS = 2 * 60 * 1000;
+      // Reset if previously expired in this session so every visit shows a fresh countdown
+      const existing = parseInt(sessionStorage.getItem(TIMER_KEY), 10);
+      if (existing && (Date.now() - existing) >= DURATION_MS) {
+        sessionStorage.removeItem(TIMER_KEY);
+      }
       const minEl = document.getElementById('timerMin');
       const secEl = document.getElementById('timerSec');
       if (!minEl || !secEl) return;
